@@ -4,13 +4,13 @@
 
 ## Task todo in server side
 
-### - [] Setup Server
+### - [x] Setup Server
 
-- [] Install Dependencies
-- [] Install / SetUp linter
-- [] SetUp Express App
-- [] Setup NotFound and Error Middleware
-  <br>
+- [x] Install Dependencies
+- [x] Install / SetUp linter
+- [x] SetUp Express App
+- [x] Setup NotFound and Error Middleware
+      <br>
 
 ### - [] MongoDB SetUP
 
