@@ -4,7 +4,7 @@
 
 ## Task todo in server side
 
-### - [x] Setup Server
+### Setup Server
 
 - [x] Install Dependencies
 - [x] Install / SetUp linter
@@ -12,20 +12,28 @@
 - [x] Setup NotFound and Error Middleware
       <br>
 
-### - [] MongoDB SetUP
+###  MongoDB SetUP
 
-- [] Connection to MongoDB
+- [x] Connection to MongoDB
 - What to store in Database ?
-- Design the Schema for DATA
+  - Todo task
+    - Titel - (String) - will be types [Meeting,Random,OfficeWork,....]
+    - description - (String)
+    - dueDate - (Date)
+    - isCompleted -(Boolean)
+- [x] Design the Schema for DATA
   <br>
 
-### - [] Api End point
+###  Api End point
 
-- [] Get all the TODO
-- [] Add A single TODO
-- [] Update A single TODO
-- [] Task complete
-- [] Delete the TODO
+- [x] Get all the TODO
+- [x] Add A single TODO
+- [x] Update A single TODO
+- [x] Task complete
+- [x] Delete the TODO
+- [x] Get Tod's on Title
+- [x] Get all completed task
+- [x] Get all the pending Task
 
 ### Technology used
 

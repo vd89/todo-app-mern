@@ -21,8 +21,8 @@
     "nodemon": "^2.0.4"
   },
   "scripts": {
-    "start": "node src/",
-    "dev": "nodemon src/",
+    "start": "node src/.",
+    "dev": "nodemon src/.",
     "lint:": "eslint src/"
   }
 }
