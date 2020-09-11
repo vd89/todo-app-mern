@@ -24,7 +24,7 @@ app.use(
     origin: process.env.CORS_ORIGINAL,
   })
 );
-app.get(express.json());
+app.use(express.json());
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
