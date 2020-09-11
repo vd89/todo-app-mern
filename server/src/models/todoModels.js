@@ -59,6 +59,39 @@ class Todo {
       throw error;
     }
   }
+  static async getTaskOnTitle(title) {
+    try {
+      const userQuery = {
+        title: title,
+      };
+      const result = await this.find(userQuery).sort({ dueDate: 1, isCompleted: -1 });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async completedTask() {
+    try {
+      const userQuery = {
+        isCompleted: true,
+      };
+      const result = await this.find(userQuery).sort({ dueDate: 1 });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async pendingTask() {
+    try {
+      const userQuery = {
+        isCompleted: false,
+      };
+      const result = await this.find(userQuery).sort({ dueDate: 1 });
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 todoSchema.loadClass(Todo);
 module.exports = model('Todo', todoSchema);

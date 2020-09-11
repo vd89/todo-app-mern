@@ -52,14 +52,30 @@ module.exports = {
       next(error);
     }
   },
-  getTodsOnTitle: async (req, res) => {
-    return res.status(200).json({ data: { message: 'Success', value: 'To get all the task based in title' } });
+  getTodsOnTitle: async (req, res, next) => {
+    try {
+      const { title } = req.body;
+      const getTaskOnTitle = await Todo.getTaskOnTitle(title);
+      return res.status(200).json({ data: { message: 'Success', getTaskOnTitle } });
+    } catch (error) {
+      next(error);
+    }
   },
-  getAllCompleted: async (req, res) => {
-    return res.status(200).json({ data: { message: 'Success', value: 'To get all the task based completed' } });
+  getAllCompleted: async (req, res,next) => {
+     try {
+       const completedTask = await Todo.completedTask();
+       return res.status(200).json({ data: { message: 'Success', completedTask } });
+     } catch (error) {
+       next(error);
+     }
   },
   getAllPending: async (req, res) => {
-    return res.status(200).json({ data: { message: 'Success', value: 'To get all the pending task' } });
+    try {
+      const pendingTask = await Todo.pendingTask();
+      return res.status(200).json({ data: { message: 'Success', pendingTask } });
+    } catch (error) {
+      next(error);
+    }
   },
 };
 
