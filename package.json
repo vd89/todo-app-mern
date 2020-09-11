@@ -1,0 +1,18 @@
+{
+  "name": "todo-app-mern",
+  "version": "1.0.0",
+  "description": "The server and the client app working by the by ",
+  "main": "index.js",
+  "repository": "git@github.com:vd89/todo-app-mern.git",
+  "author": "dixitvora <dixitvora@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "scripts": {
+    "client": "npm start --prefix client",
+    "server": "npm run dev --prefix server",
+    "proDev": "concurrently \"yarn client\" \"yarn server\""
+  }
+}
