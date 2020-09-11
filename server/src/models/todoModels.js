@@ -24,6 +24,33 @@ class Todo {
     const data = await this.find().sort('createdAt');
     return data;
   }
+  static async getSingle(todoId) {
+    try {
+      return await this.findOne({ _id: todoId });
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async updateTask(description, todoId) {
+    try {
+      const result = await this.findOne({ _id: todoId });
+      result.description = description;
+      await result.save;
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
+  static async completeTask(todoId) {
+    try {
+      const result = await this.findOne({ _id: todoId });
+      result.isCompleted = true;
+      await result.save();
+      return result;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 todoSchema.loadClass(Todo);
 module.exports = model('Todo', todoSchema);

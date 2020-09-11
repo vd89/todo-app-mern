@@ -5,14 +5,14 @@ const Todo = require('../models/todoModels');
 module.exports = {
   getAll: async (req, res, next) => {
     try {
-      const allTodo = await Todo.getAllTodo()
-      return res.status(200).json({data: { message: 'Success', allTodo }})  
+      const allTodo = await Todo.getAllTodo();
+      return res.status(200).json({ data: { message: 'Success', allTodo } });
     } catch (error) {
-      next(error)
+      next(error);
     }
   },
   createTodo: async (req, res, next) => {
-    try {     
+    try {
       const newTask = new Todo(req.body);
       const createdTask = await newTask.save();
       return res.status(200).json({ data: { message: 'Success', createdTask } });
@@ -23,11 +23,24 @@ module.exports = {
       next(error);
     }
   },
-  updateTodo: async (req, res) => {
-    return res.status(200).json({ data: { message: 'Success', value: 'This is a updateTodo task' } });
+  updateTodo: async (req, res, next) => {
+    try {
+      const todoId = req.params.todoId;
+      const { description } = req.body;
+      const updateTask = await Todo.updateTask(description, todoId);
+      return res.status(200).json({ data: { message: 'Success', updateTask } });
+    } catch (error) {
+      next(error);
+    }
   },
-  modifyTodo: async (req, res) => {
-    return res.status(200).json({ data: { message: 'Success', value: 'This is a modify todo to complete the task' } });
+  modifyTodo: async (req, res, next) => {
+    try {
+      const todoId = req.params.todoId;
+       const completedTask = await Todo.completeTask(todoId);;
+      return res.status(200).json({  data:  {  message:  'Success',  completedTask  }  });;
+    } catch (error) {
+      next(error);;
+    }
   },
   removeTodo: async (req, res) => {
     return res.status(200).json({ data: { message: 'Success', value: 'This is to delete a task that is done ' } });
