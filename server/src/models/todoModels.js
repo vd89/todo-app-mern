@@ -51,6 +51,14 @@ class Todo {
       throw error;
     }
   }
+  static async removeTask(todoId) {
+    try {
+      const result = await this.findOne({ _id: todoId });
+      return await result.remove();
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 todoSchema.loadClass(Todo);
 module.exports = model('Todo', todoSchema);

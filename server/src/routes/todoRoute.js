@@ -27,7 +27,7 @@ todoRoute.put('/update/:todoId', updateTodo);
 todoRoute.put('/complete/:todoId', modifyTodo);
 
 // Delete the todo
-todoRoute.delete('/delete/:todoId', removeTodo);
+todoRoute.delete('/remove/:todoId', removeTodo);
 
 // Get all the todo with title
 todoRoute.get('/title', getTodsOnTitle);

@@ -36,14 +36,21 @@ module.exports = {
   modifyTodo: async (req, res, next) => {
     try {
       const todoId = req.params.todoId;
-       const completedTask = await Todo.completeTask(todoId);;
-      return res.status(200).json({  data:  {  message:  'Success',  completedTask  }  });;
+      const completedTask = await Todo.completeTask(todoId);
+      return res.status(200).json({ data: { message: 'Success', completedTask } });
     } catch (error) {
-      next(error);;
+      next(error);
     }
   },
-  removeTodo: async (req, res) => {
-    return res.status(200).json({ data: { message: 'Success', value: 'This is to delete a task that is done ' } });
+  removeTodo: async (req, res, next) => {
+    try {
+      const todoId = req.params.todoId;
+      await Todo.removeTask(todoId);
+      const removeTask = 'The todo was deleted';
+      return res.status(200).json({ data: { message: 'Success', removeTask } });
+    } catch (error) {
+      next(error);
+    }
   },
   getTodsOnTitle: async (req, res) => {
     return res.status(200).json({ data: { message: 'Success', value: 'To get all the task based in title' } });
