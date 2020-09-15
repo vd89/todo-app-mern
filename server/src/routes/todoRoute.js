@@ -30,7 +30,7 @@ todoRoute.put('/complete/:todoId', modifyTodo);
 todoRoute.delete('/remove/:todoId', removeTodo);
 
 // Get all the todo with title
-todoRoute.get('/title', getTodsOnTitle);
+// todoRoute.get('/title', getTodsOnTitle);
 
 // get all todo completed
 todoRoute.get('/completed', getAllCompleted);

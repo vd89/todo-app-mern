@@ -17,9 +17,7 @@
 - [x] Connection to MongoDB
 - What to store in Database ?
   - Todo task
-    - Titel - (String) - will be types [Meeting,Random,OfficeWork,....]
     - description - (String)
-    - dueDate - (Date)
     - isCompleted -(Boolean)
 - [x] Design the Schema for DATA
   <br>
@@ -31,7 +29,6 @@
 - [x] Update A single TODO
 - [x] Task complete
 - [x] Delete the TODO
-- [x] Get Tod's on Title
 - [x] Get all completed task
 - [x] Get all the pending Task
 
